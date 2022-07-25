@@ -2,9 +2,9 @@
 :root {
     --white: #FFFFFF;
     --black: #000000;
-    --very-light-pink: #C7C7C7;
+    --very-light-pink: #5A5A5A;
     --text-input-field: #F7F7F7;
-    --hospital-green: #ACD9B2;
+    --hospital-green: #FF822D;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -253,6 +253,7 @@
   gap: 26px;
   place-content: center;
   margin-top: 20px;
+  text-transform: uppercase;
 }
 .product-card {
   width: 240px;
