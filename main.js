@@ -1,21 +1,27 @@
 const menuEmail = document.querySelector('.navbar-email');
 const desktopMenu = document.querySelector('.desktop-menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productoDetailCloseIcon = document.querySelector('.product-info-detail-close');
 const burguerMenu= document.querySelector('.menu');
 const mobileMenu= document.querySelector('.mobile-menu');
 const aside = document.querySelector('.product-cart-detail');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailContainer = document.querySelector('.product-info-detail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 burguerMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productoDetailCloseIcon.addEventListener('click', closeProductDetailInfo);
+
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     aside.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
+    productDetailContainer.classList.add('inactive');
     aside.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
@@ -24,7 +30,22 @@ function toggleCarritoAside() {
     aside.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
+
+function openProductDetailInfo() {
+    productDetailContainer.classList.remove('inactive');
+    aside.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+}
+
+function closeProductDetailInfo() {
+    productDetailContainer.classList.add('inactive');
+}
+
+
+// Productos del cátalogo 
 
 const adidasJersey = [];
 
@@ -81,6 +102,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+        productImg.addEventListener('click', openProductDetailInfo);
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
